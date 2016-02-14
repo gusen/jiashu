@@ -13,10 +13,10 @@ class index
 
 	public function tpl()
 	{
-		$n = $GLOBALS['JSFW']->getConfig()['appName'];
-		$v = $GLOBALS['JSFW']->getVersion();
-		$GLOBALS['JSFW']->setTplData('n',$n)->setTplData('v',$v);
-		$GLOBALS['JSFW']->render('index');
+		$n = JSFW()->getConfig()['appName'];
+		$v = JSFW()->getVersion();
+		JSFW()->setTplData('n',$n)->setTplData('v',$v);
+		JSFW()->render('index');//$GLOBALS['JSFW']->render('index');
 	}
 
 	public function db()
@@ -26,8 +26,8 @@ class index
 		//$r = $user->executeSql('select * from test_user');
 		$r = $user->field('username,email')->limit('1')->query();
 		//print_r($r);
-		$GLOBALS['JSFW']->setTplData('r',$r);
-		$GLOBALS['JSFW']->render('index');
+		JSFW()->setTplData('r',$r);
+		JSFW()->render('index');
 	}
 }
 ?>

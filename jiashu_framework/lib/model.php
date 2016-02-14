@@ -7,7 +7,7 @@
  * @link https://github.com/gusen/jiashu
  * @copyright 2014 Gu Sen
  * @license MIT License
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 /**
@@ -35,7 +35,7 @@ class model
 	{
 		if($tablename != '')
 			$this->tablename = $tablename;
-		$config = $GLOBALS['JSFW']->getConfig();
+		$config = JSFW()->getConfig();//$GLOBALS['JSFW']->getConfig();
 		$dbconfig = false;
 		if($config['database'])
 		{

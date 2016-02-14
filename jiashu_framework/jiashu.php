@@ -7,7 +7,7 @@
  * @link https://github.com/gusen/jiashu
  * @copyright 2014 Gu Sen
  * @license MIT License
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 /**
@@ -17,7 +17,7 @@
 define('JIASHU_FRAMEWORK_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 
 /**
- * jiashu is a MVC web framework in PHP language.
+ * jiashu is a MVC web framework in PHP language.This is singleton class.
  * jiashu是一个用PHP语言写的MVC的网站框架.
  *
  * @author Gu Sen <gusen1982@gmail.com>
@@ -61,13 +61,20 @@ class jiashu
 	private $_tpldata;
 
 	/**
+	 * @var object instance of this class.类对象 本类的实例变量.
+	 * @access private
+	 * @since 1.0.0
+	 */
+	private static $instance;
+
+	/**
 	 * Construction function.构造函数
 	 * @param string $configfile path of config.字符串类型 配置文件的路径
 	 * If $configfile is empty,it use default config of framework.
 	 * 如果不给这个参数,就使用框架默认的配置.
 	 * @access private
 	 */
-	public function __construct($configfile = '')
+	private function __construct($configfile = '')
 	{
 		if($configfile != '')
 		{
@@ -81,6 +88,24 @@ class jiashu
 			die('can\'t not load config file');
 		$this->config = $config;
 		$GLOBALS['JSFW'] = $this;
+	}
+
+	/**
+	 * Create a unique instance of class.创建类的唯一实例
+	 * @param string $configfile path of config.字符串类型 配置文件的路径
+	 * If $configfile is empty,it use default config of framework.
+	 * 如果不给这个参数,就使用框架默认的配置.
+	 * @access public
+	 * @static
+	 * @return instance of class
+	 */
+	public static function getInstance($configfile = '')
+	{
+		if(!(self::$instance instanceof self))
+		{
+        self::$instance = new self($configfile);
+    }
+    return self::$instance;
 	}
 
 	/**
@@ -259,7 +284,16 @@ class jiashu
 	 */
 	public function getVersion()
 	{
-		return '2.0.0';
+		return '2.0.1';
 	}
+}
+
+/**
+ * Get framework instance(global function).得到框架实例(全局函数)
+ * @return instance
+ */
+function JSFW()
+{
+	return $GLOBALS['JSFW'];
 }
 ?>
