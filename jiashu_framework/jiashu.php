@@ -172,6 +172,24 @@ class jiashu
 	}
 
 	/**
+	 * load your custom class or function file.读取自定义的类或者函数.
+	 * @param string $libfilename lib file name.字符串类型 自定义库的文件名
+	 * @static
+	 * @access public
+	 * @return include file
+	 */
+	public static function loadCustomLib($libfilename)
+	{
+		$webroot = url::getWebRoot();
+		$filepath = $webroot.'lib'.DIRECTORY_SEPARATOR.$libfilename.'.php';
+		if(file_exists($filepath))
+		{
+			return include $filepath;
+		}
+		return null;
+	}
+
+	/**
 	 * Start this web application.开始执行
 	 * @access public
 	 */

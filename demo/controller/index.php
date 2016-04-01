@@ -8,7 +8,10 @@ class index
 
 	public function index()
 	{
-		echo 'hello world';
+		jiashu::loadCustomLib('GenUniqID');//load custom function file.读取一个自定义的函数文件
+		JSFW()->setTplData('n',GenUniqID());
+		//echo 'hello world';
+		JSFW()->render('index');
 	}
 
 	public function tpl()
