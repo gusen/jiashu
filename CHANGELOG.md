@@ -1,6 +1,9 @@
 ### ChangeLog
 [+]Add [-]Delete [^]Update [#]Fix 【】Important
 
+### 2.0.2 (2016-04-01)
+* 【+】Add new Function loadCustomLib() It can load your custom class or function file
+
 ### 2.0.1 (2016-02-14)
 * 【+】Add Global Function JSFW() It can get framework instance
 * 【#】framework is singleton class now
@@ -19,6 +22,9 @@
 
 ### 修改记录
 [+]新增 [-]删除 [^]升级 [#]修复 【】重要
+
+### 2.0.2 (2016-04-01)
+* 【+】增加新的函数loadCustomLib() 读取自定义的类或者函数
 
 ### 2.0.1 (2016-02-14)
 * 【+】增加全局函数JSFW() 能够得到框架实例对象
