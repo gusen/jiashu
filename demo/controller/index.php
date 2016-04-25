@@ -49,5 +49,19 @@ class index
 		JSFW()->setTplData('n',$sess->sessionStart()->getSession('testsession'))->setTplData('v',$v);
 		JSFW()->render('index');
 	}
+	
+	public function clientinfo()
+	{
+		jiashu::loadLib('clientinfo');
+		echo 'IP:'.clientinfo::getIP().'<br />';
+		echo 'UA:'.clientinfo::getUserAgent().'<br />';
+		echo 'Browser:'.clientinfo::getBrowser().'<br />';
+		echo 'Language:'.clientinfo::getLang().'<br />';
+		echo 'OS:'.clientinfo::getOS().'<br />';
+		echo 'Referer:'.clientinfo::getReferer().'<br />';
+		echo 'Mobile:'.(clientinfo::isMobile() ? 'isMobile' : 'notMobile').'<br />';
+		echo 'Android:'.(clientinfo::isAndroid() ? 'isAndroid' : 'notAndroid').'<br />';
+		echo 'IOS:'.(clientinfo::isIOS() ? 'isIOS' : 'notIOS').'<br />';
+	}
 }
 ?>
