@@ -7,7 +7,7 @@
  * @link https://github.com/gusen/jiashu
  * @copyright 2014 Gu Sen
  * @license MIT License
- * @version 2.0.1
+ * @version 2.0.3
  */
 
 /**
@@ -220,14 +220,29 @@ class jiashu
 					$uriarr = explode('/',$uri);
 					if(is_array($uriarr) && count($uriarr) > 1)
 					{
-						if($mcaarr[1])
-							$this->controller = $mcaarr[1];
+						if($uriarr[0] == '')
+						{
+							if($uriarr[2])
+								$this->controller = $uriarr[2];
+							else
+								$this->controller = $this->config[defaultController];
+							if($uriarr[3])
+								$this->action = $uriarr[3];
+							else
+								$this->action = $this->config[defaultAction];
+						}
 						else
-							$this->controller = $this->config[defaultController];
-						if($mcaarr[2])
-							$this->action = $mcaarr[2];
-						else
-							$this->action = $this->config[defaultAction];
+						{
+							if($uriarr[1])
+								$this->controller = $uriarr[1];
+							else
+								$this->controller = $this->config[defaultController];
+							if($uriarr[2])
+								$this->action = $uriarr[2];
+							else
+								$this->action = $this->config[defaultAction];
+						}
+						
 					}
 				}
 			}
