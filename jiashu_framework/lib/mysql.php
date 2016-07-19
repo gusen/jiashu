@@ -7,7 +7,7 @@
  * @link https://github.com/gusen/jiashu
  * @copyright 2014 Gu Sen
  * @license MIT License
- * @version 2.0.0
+ * @version 2.0.2
  */
 class mysql
 {
@@ -380,10 +380,10 @@ class mysql
 	{
 		if(!$updatedata)
 			return false;
-		if(!is_array($insertdata))
+		if(!is_array($updatedata))
 			return false;
-		$f = array_keys($insertdata);
-		$v = array_values($insertdata);
+		$f = array_keys($updatedata);
+		$v = array_values($updatedata);
 		for($i=0;$i<count($f);$i++)
 		{
 			$f[$i] = '`'.$f[$i].'`';
@@ -449,7 +449,7 @@ class mysql
 	 */
 	public function error($msg = '', $sql = '')
 	{
-		if($this->config['sqldebug'])
+		if($this->sqldebug)
 		{
 			if($msg)
 				$msg = 'Database Error: '.$msg;
@@ -458,6 +458,7 @@ class mysql
 			if($sql)
 				$sql = '<br />in SQL:'.$sql;
 			$errormsg = $msg.$sql;
+			
 		}
 		else
 			$errormsg = '';
