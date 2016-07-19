@@ -1,6 +1,10 @@
 ### ChangeLog
 [+]Add [-]Delete [^]Update [#]Fix 【】Important
 
+### 2.0.3 (2016-07-19)
+* 【#】Fix bug run() function in jiashu.php
+* 【#】Fix bug update() and error() functions in lib/mysql.php
+
 ### 2.0.2 (2016-04-01)
 * 【+】Add new Function loadCustomLib() It can load your custom class or function file
 
@@ -22,6 +26,10 @@
 
 ### 修改记录
 [+]新增 [-]删除 [^]升级 [#]修复 【】重要
+
+### 2.0.3 (2016-07-19)
+* 【#】修改jiashu.php文件里的run()函数
+* 【#】修改lib/mysql.php文件里的update()和error()俩函数
 
 ### 2.0.2 (2016-04-01)
 * 【+】增加新的函数loadCustomLib() 读取自定义的类或者函数
